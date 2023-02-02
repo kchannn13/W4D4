@@ -55,3 +55,16 @@ def stock_picker(arr)
     end
     max_idx
 end
+
+class HanoiTowers
+
+    attr_reader :stack_1, :stack_2, :stack_3
+
+    def initialize
+        @stack_1 = []
+        @stack_2 = []
+        @stack_3 = []
+
+    end
+
+end

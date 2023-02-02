@@ -41,3 +41,18 @@ describe "stock_picker()" do
         expect(stock_picker([44,19,6,20,45,66,50,3])).to eq([2,5])
     end
 end
+
+
+describe HanoiTowers do
+
+    describe "#initialize" do 
+        it "should have 3 arrays" do
+            game = HanoiTowers.new
+            expect(game.stack_1).to be_a(Array)
+            expect(game.stack_2).to be_a(Array)
+            expect(game.stack_2).to be_a(Array)
+        end
+
+    end
+
+end
