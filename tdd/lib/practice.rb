@@ -70,17 +70,19 @@ class HanoiTowers
     end
 
     def move(n1, n2)
-        if @legend[n1].length == 0
+        if legend[n1].length == 0
             raise ArgumentError.new
         end
-        if @legend[n1].length == 0 && @legend[n2].empty?
+        if legend[n1].length == 0 && legend[n2].empty?
             raise ArgumentError.new
         end
-        if !@legend[n2].first.nil?
-            if @legend[n2].first < @legend[n1].first
+        if !legend[n2].first.nil?
+            if self.legend[n2].first < legend[n1].first
                 raise ArgumentError.new
             end
         end
+
+        self.legend[n2].unshift(self.legend[n1].shift)
 
     end
 
