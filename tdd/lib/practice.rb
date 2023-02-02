@@ -60,11 +60,11 @@ class HanoiTowers
 
     attr_reader :stack_1, :stack_2, :stack_3
 
-    def initialize
+    def initialize(num = 4)
         @stack_1 = []
+        (1..num).each {|n| @stack_1 << n}
         @stack_2 = []
         @stack_3 = []
-
     end
 
 end

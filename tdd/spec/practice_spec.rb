@@ -44,15 +44,30 @@ end
 
 
 describe HanoiTowers do
-
+    subject(:game) { |game| game = HanoiTowers.new}
     describe "#initialize" do 
         it "should have 3 arrays" do
             game = HanoiTowers.new
             expect(game.stack_1).to be_a(Array)
             expect(game.stack_2).to be_a(Array)
-            expect(game.stack_2).to be_a(Array)
+            expect(game.stack_3).to be_a(Array)
+        end
+        it "should set stack_1 starting size to be 4 if no argument is passed during initaliztion" do
+            game = HanoiTowers.new
+            expect(game.stack_1.length).to eq(4)
+        end
+        it "should accept a number during a initialization to set initial stack_1 size" do
+            game = HanoiTowers.new(8)
+            expect(game.stack_1.length).to eq(8)
         end
 
     end
 
+    describe "#won?" do
+        it "should return true when all elements are in stack_3 and in correct order" do
+            expect(game.won?).to be_truthy
+            expect(game.stack_3).to eq([1,2,3,4])
+            
+        end
+    end
 end
