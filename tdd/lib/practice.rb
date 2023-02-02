@@ -58,13 +58,18 @@ end
 
 class HanoiTowers
 
-    attr_reader :stack_1, :stack_2, :stack_3
+    attr_reader :stack_1, :stack_2, :stack_3, :start
 
     def initialize(num = 4)
         @stack_1 = []
         (1..num).each {|n| @stack_1 << n}
         @stack_2 = []
         @stack_3 = []
+        @start = @stack_1.dup
+    end
+
+    def won?
+        self.stack_3 == self.start
     end
 
 end

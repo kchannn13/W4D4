@@ -45,6 +45,22 @@ end
 
 describe HanoiTowers do
     subject(:game) { |game| game = HanoiTowers.new}
+    
+    # let(:winning_game) do 
+
+    #     allow(winning_game).to receive(:start).and_return([1,2,3,4])
+    #     allow(:winning_game).to receive(:stack_3).and_return([1,2,3,4])
+
+    # end
+    
+    # let(:winning_game) do |winning_game|
+
+    #     winning_game = HanoiTowers.new
+    #     allow(:winning_game).to receive(:stack_3).and_return([1,2,3,4])
+
+    # end
+    # allow(:winning_game).to receive(:stack_3).and_return([1,2,3,4])
+    
     describe "#initialize" do 
         it "should have 3 arrays" do
             game = HanoiTowers.new
@@ -64,9 +80,16 @@ describe HanoiTowers do
     end
 
     describe "#won?" do
-        it "should return true when all elements are in stack_3 and in correct order" do
-            expect(game.won?).to be_truthy
-            expect(game.stack_3).to eq([1,2,3,4])
+
+        it "should return true when all elements are in stack_3 and in correct order" do        
+            expect(winning_game.won?).to be_truthy
+            expect(winning_game.stack_3).to eq([1,2,3,4])
+            
+        end
+
+        it "should return false when all elements are not in stack_3 and not in correct order" do        
+            expect(game.won?).to be_falsey
+            expect(game.stack_3).to_not eq([1,2,3,4])
             
         end
     end
