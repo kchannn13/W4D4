@@ -15,3 +15,29 @@ describe "#two_sum" do
     end
 
 end
+
+describe "#my_transpose" do
+    context "it should opperate on a 2-D array"
+    it "should return a new 2-D array of where the inner index are the new outer index" do
+        rows = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8]
+        ]
+        cols = [
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8]
+        ]
+        expect(rows.my_transpose).to eq(cols)
+    end
+end
+
+describe "stock_picker()" do
+    it "should take an array as a argument" do
+        expect{stock_picker([1,2,3])}.to_not raise_error
+    end
+    it "should return the two indexes for the most profit. Buy, sell." do 
+        expect(stock_picker([44,19,6,20,45,66,50,3])).to eq([2,5])
+    end
+end
