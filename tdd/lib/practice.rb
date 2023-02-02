@@ -58,7 +58,7 @@ end
 
 class HanoiTowers
 
-    attr_reader :stack_1, :stack_2, :stack_3, :start
+    attr_reader :stack_1, :stack_2, :stack_3, :start, :legend
 
     def initialize(num = 4)
         @stack_1 = []
@@ -66,6 +66,22 @@ class HanoiTowers
         @stack_2 = []
         @stack_3 = []
         @start = @stack_1.dup
+        @legend = {1 => @stack_1, 2 => @stack_2, 3 => @stack_3}
+    end
+
+    def move(n1, n2)
+        if @legend[n1].length == 0
+            raise ArgumentError.new
+        end
+        if @legend[n1].length == 0 && @legend[n2].empty?
+            raise ArgumentError.new
+        end
+        if !@legend[n2].first.nil?
+            if @legend[n2].first < @legend[n1].first
+                raise ArgumentError.new
+            end
+        end
+
     end
 
     def won?

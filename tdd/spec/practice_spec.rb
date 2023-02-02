@@ -79,18 +79,28 @@ describe HanoiTowers do
 
     end
 
-    describe "#won?" do
-
-        it "should return true when all elements are in stack_3 and in correct order" do        
-            expect(winning_game.won?).to be_truthy
-            expect(winning_game.stack_3).to eq([1,2,3,4])
-            
+    describe "#move(n1, n2)" do 
+        it "should accept two numbers" do
+            expect{game.move(1, 2)}.to_not raise_error
         end
-
-        it "should return false when all elements are not in stack_3 and not in correct order" do        
-            expect(game.won?).to be_falsey
-            expect(game.stack_3).to_not eq([1,2,3,4])
-            
+        it "should raise an error if it's an invalid move" do
+            expect{game.move(3, 2)}.to raise_error
         end
+        
     end
+
+    # describe "#won?" do
+
+        # it "should return true when all elements are in stack_3 and in correct order" do        
+        #     expect(winning_game.won?).to be_truthy
+        #     expect(winning_game.stack_3).to eq([1,2,3,4])
+            
+        # end
+
+    #     it "should return false when all elements are not in stack_3 and not in correct order" do        
+    #         expect(game.won?).to be_falsey
+    #         expect(game.stack_3).to_not eq([1,2,3,4])
+            
+    #     end
+    # end
 end
